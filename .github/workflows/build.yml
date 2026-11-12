@@ -1,32 +1,38 @@
-name: Build APK
+plugins {
+    id 'com.android.application'
+}
 
-on:
-  push:
-  workflow_dispatch:
+android {
+    namespace 'com.example.calculatorapp'
+    compileSdk 34
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    defaultConfig {
+        applicationId "com.example.calculatorapp"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-      - name: Build with Gradle
-        run: |
-          if [ -f "./gradlew" ]; then
-            chmod +x gradlew
-            ./gradlew assembleDebug --stacktrace
-          else
-            gradle assembleDebug --stacktrace
-          fi
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/*.apk
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.espresso:espresso-core:3.5.1'
+}
