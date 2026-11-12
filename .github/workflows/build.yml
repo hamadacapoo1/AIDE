@@ -16,12 +16,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          cmdline-tools-version: "8531361_latest"
-
-      - name: Build with Gradle Wrapper or Gradle
+      - name: Build with Gradle
         run: |
           if [ -f "./gradlew" ]; then
             chmod +x gradlew
