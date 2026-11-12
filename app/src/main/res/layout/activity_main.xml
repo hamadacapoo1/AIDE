@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="20dp">
+
+    <!-- Top Display Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.2"
+        android:orientation="vertical"
+        android:gravity="bottom|end"
+        android:background="@drawable/screen_bg"
+        android:padding="20dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#7A7A7A"
+            android:textSize="26sp"
+            android:maxLines="1"
+            android:ellipsize="start" />
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="38"
+            android:textColor="#000000"
+            android:textSize="56sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="start" />
+    </LinearLayout>
+
+    <!-- Toolbar Icons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp"
+        android:paddingHorizontal="8dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_recent_history"
+            android:tint="#8E8E93"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="History"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_compass"
+            android:tint="#8E8E93"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="Converter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="( )"
+            android:textSize="18sp"
+            android:textColor="#8E8E93"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/btnBackspace"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#FF3B30"
+            android:contentDescription="Backspace"/>
+    </LinearLayout>
+
+    <!-- Keypad Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false">
+
+        <!-- Row 1: C, %, ÷, × -->
+        <Button android:id="@+id/btnClear" android:text="C" style="@style/SamsungLightButton" android:textColor="#FF3B30"/>
+        <Button android:id="@+id/btnPercent" android:text="%" style="@style/SamsungLightButton" android:textColor="#007AFF"/>
+        <Button android:id="@+id/btnDivide" android:text="÷" style="@style/SamsungLightButton" android:textColor="#007AFF"/>
+        <Button android:id="@+id/btnMultiply" android:text="×" style="@style/SamsungLightButton" android:textColor="#007AFF"/>
+
+        <!-- Row 2: 1, 2, 3, - -->
+        <Button android:id="@+id/btn1" android:text="1" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btn2" android:text="2" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btn3" android:text="3" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btnMinus" android:text="-" style="@style/SamsungLightButton" android:textColor="#007AFF"/>
+
+        <!-- Row 3: 4, 5, 6, + -->
+        <Button android:id="@+id/btn4" android:text="4" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btn5" android:text="5" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btn6" android:text="6" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btnPlus" android:text="+" style="@style/SamsungLightButton" android:textColor="#007AFF"/>
+
+        <!-- Row 4: 7, 8, 9, Equals (Spanning 2 rows) -->
+        <Button android:id="@+id/btn7" android:text="7" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btn8" android:text="8" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btn9" android:text="9" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btnEquals" android:text="=" style="@style/SamsungEqualsButton" android:layout_rowSpan="2" android:layout_height="0dp"/>
+
+        <!-- Row 5: ., 0, ± -->
+        <Button android:id="@+id/btnDot" android:text="." style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btn0" android:text="0" style="@style/SamsungLightButton"/>
+        <Button android:id="@+id/btnPlusMinus" android:text="±" style="@style/SamsungLightButton"/>
+
+    </GridLayout>
+
+</LinearLayout>
